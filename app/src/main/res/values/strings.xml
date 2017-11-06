@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SkyWeather</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_favourite">Add Favourite</string>
+    <string name="error_generic_connection">Connection failure</string>
+    <string name="error_generic_unknown">Unknown failure</string>
+    <string name="favourite_description_format">%1$s, %2$s</string>
+    <string name="wind_speed_format">%1$.1f m/s</string>
+    <string name="wind_direction_format">(%1$3d)</string>
+    <string name="lat_long_format">(%f, %f)</string>
+    <string name="wind_direction_indicator">WInd direction indicator</string>
+    <string name="right_facing_chevron">Right facing chevron</string>
+    <string name="search_for_city_name">Search for city name</string>
+    <string name="add_a_city_message">Add a city to find out find out the wind conditions there</string>
+    <string name="wind_direction">Wind direction</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="select">Select</string>
+</resources>
