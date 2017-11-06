@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_favourites">
 
     <FrameLayout
-        android:id="@+id/intro_overlay"
+        android:id="@+id/introOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C000">
