@@ -50,6 +50,7 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
     AddFavouritePresenter addFavouritePresenter;
 
 
+    //<editor-fold desc="Lifecycle methods">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,18 +62,6 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
         getActivityComponent().inject(this);
         initialiseViews();
 
-    }
-
-    private void initialiseViews() {
-        initialiseRecyclerView();
-        progressLayout.setVisibility(View.GONE);
-        resultRecyclerView.setVisibility(View.GONE);
-    }
-
-    private void initialiseRecyclerView() {
-        addFavouriteAdapter = new AddFavouriteAdapter(addFavouritePresenter);
-        resultRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        resultRecyclerView.setAdapter(addFavouriteAdapter);
     }
 
     @Override
@@ -88,7 +77,9 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
                 return super.onOptionsItemSelected(item);
         }
     }
+    //</editor-fold>
 
+    //<editor-fold desc="Event handlers">
     @OnEditorAction(R.id.search_view)
     public boolean onSearchViewAction(EditText view, int actionId, KeyEvent keyEvent) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -102,13 +93,9 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
         }
 
     }
+    //</editor-fold>
 
-    private void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
-                Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
-    }
-
+    //<editor-fold desc="AddFavouriteView implementation">
     @Override
     public void updateResults(List<WeatherCity> response) {
         resultRecyclerView.setVisibility(View.VISIBLE);
@@ -128,7 +115,9 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
     public void dismiss() {
         finish();
     }
+    //</editor-fold>
 
+    //<editor-fold desc="InjectableActivity implementation">
     @Override
     public ActivityComponent getActivityComponent() {
         if (activityComponent == null) {
@@ -139,6 +128,27 @@ public class AddFavouriteActivity extends AppCompatActivity implements Injectabl
         return activityComponent;
 
     }
+    //</editor-fold>
+
+    //<editor-fold desc="Service routines">
+    private void initialiseViews() {
+        initialiseRecyclerView();
+        progressLayout.setVisibility(View.GONE);
+        resultRecyclerView.setVisibility(View.GONE);
+    }
+
+    private void initialiseRecyclerView() {
+        addFavouriteAdapter = new AddFavouriteAdapter(addFavouritePresenter);
+        resultRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        resultRecyclerView.setAdapter(addFavouriteAdapter);
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
+    }
+    //</editor-fold>
 
 
 }

@@ -57,12 +57,6 @@ public class FavouritesActivity extends AppCompatActivity implements InjectableA
         initialiseRecyclerView();
     }
 
-    private void initialiseRecyclerView() {
-        favouritesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        favouriteAdapter = new FavouriteAdapter(favouritesPresenter.getFavourites(), favouritesPresenter);
-        favouritesRecyclerView.setAdapter(favouriteAdapter);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -75,7 +69,6 @@ public class FavouritesActivity extends AppCompatActivity implements InjectableA
         getMenuInflater().inflate(R.menu.menu_favourites, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -94,11 +87,16 @@ public class FavouritesActivity extends AppCompatActivity implements InjectableA
     //</editor-fold>
 
 
+
+    //<editor-fold desc="Event handlers">
     @OnClick(R.id.fab)
     protected void onFabClicked(View view) {
         favouritesPresenter.addFavouriteClicked();
     }
+    //</editor-fold>
 
+
+    //<editor-fold desc="FavouritesView implementation">
     @Override
     public void showAddFavouriteView() {
         Intent intent = new Intent(this, AddFavouriteActivity.class);
@@ -125,7 +123,11 @@ public class FavouritesActivity extends AppCompatActivity implements InjectableA
 
         startActivity(intent);
     }
+    //</editor-fold>
 
+
+
+    //<editor-fold desc="InjectableActivity implementation">
     @Override
     public ActivityComponent getActivityComponent() {
         if (activityComponent == null) {
@@ -136,6 +138,17 @@ public class FavouritesActivity extends AppCompatActivity implements InjectableA
         return activityComponent;
 
     }
+    //</editor-fold>
+
+
+
+    //<editor-fold desc="Service routines">
+    private void initialiseRecyclerView() {
+        favouritesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        favouriteAdapter = new FavouriteAdapter(favouritesPresenter.getFavourites(), favouritesPresenter);
+        favouritesRecyclerView.setAdapter(favouriteAdapter);
+    }
+    //</editor-fold>
 
 
 }

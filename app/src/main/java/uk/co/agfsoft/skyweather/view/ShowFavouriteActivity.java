@@ -41,6 +41,7 @@ public class ShowFavouriteActivity extends AppCompatActivity implements Injectab
     @BindView(R.id.directionImageView)
     ImageView directionImageView;
 
+    //<editor-fold desc="Lifecycle methods">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +75,10 @@ public class ShowFavouriteActivity extends AppCompatActivity implements Injectab
             return super.onOptionsItemSelected(item);
         }
     }
+    //</editor-fold>
 
+
+    //<editor-fold desc="InjectableActivity implementation">
     @Override
     public ActivityComponent getActivityComponent() {
         if (activityComponent == null) {
@@ -85,8 +89,10 @@ public class ShowFavouriteActivity extends AppCompatActivity implements Injectab
         return activityComponent;
 
     }
+    //</editor-fold>
 
 
+    //<editor-fold desc="SHowFavouriteView implementation">
     @Override
     public void updateWeatherDisplay(RawWeatherCity response) {
         speedTextView.setText(this.getString(R.string.wind_speed_format, response.getWindSpeed()));
@@ -104,4 +110,5 @@ public class ShowFavouriteActivity extends AppCompatActivity implements Injectab
     public void showError() {
 
     }
+    //</editor-fold>
 }
