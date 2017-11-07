@@ -15,14 +15,14 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/search_for_city_name"
-        app:layout_constraintBottom_toTopOf="@+id/search_view"
+        app:layout_constraintBottom_toTopOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/search_view"
+        android:id="@+id/searchView"
 
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
         tools:visibility="visible">
     </android.support.v7.widget.RecyclerView>
 
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
         tools:visibility="visible">
 
         <ProgressBar
