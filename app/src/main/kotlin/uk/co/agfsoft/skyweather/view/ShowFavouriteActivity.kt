@@ -16,6 +16,7 @@ import uk.co.agfsoft.skyweather.dagger.InjectableActivity
 import uk.co.agfsoft.skyweather.dagger.InjectableApplication
 import uk.co.agfsoft.skyweather.model.RawWeatherCity
 import uk.co.agfsoft.skyweather.presenter.ShowFavouritePresenter
+import uk.co.agfsoft.skyweather.utils.showAlert
 import javax.inject.Inject
 
 class ShowFavouriteActivity : AppCompatActivity(), InjectableActivity, ShowFavouriteView {
@@ -83,11 +84,7 @@ class ShowFavouriteActivity : AppCompatActivity(), InjectableActivity, ShowFavou
     }
 
     override fun showError() {
-        AlertDialog.Builder(this)
-                .setTitle(getString(R.string.network_error))
-                .setMessage(getString(R.string.network_error_message))
-                .create()
-                .show()
+        showAlert(this, R.string.network_error, R.string.network_error_message)
     }
 
     companion object {

@@ -21,6 +21,7 @@ import uk.co.agfsoft.skyweather.dagger.InjectableActivity
 import uk.co.agfsoft.skyweather.dagger.InjectableApplication
 import uk.co.agfsoft.skyweather.model.WeatherCity
 import uk.co.agfsoft.skyweather.presenter.AddFavouritePresenter
+import uk.co.agfsoft.skyweather.utils.showAlert
 import uk.co.agfsoft.skyweather.view.adapter.AddFavouriteAdapter
 import javax.inject.Inject
 
@@ -84,7 +85,7 @@ class AddFavouriteActivity : AppCompatActivity(), InjectableActivity, AddFavouri
     override fun showError() {
         progressLayout.visibility = View.GONE
         resultRecyclerView.visibility = View.GONE
-        AlertDialog.Builder(this).setTitle("Network Error").setMessage("Sorry - we are unable to complete your request at this time").create().show()
+        showAlert(this, R.string.network_error, R.string.network_error_message)
     }
 
     override fun dismiss() {
