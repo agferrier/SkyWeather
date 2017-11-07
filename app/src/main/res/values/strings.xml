@@ -6,7 +6,7 @@
     <string name="error_generic_unknown">Unknown failure</string>
     <string name="favourite_description_format">%1$s, %2$s</string>
     <string name="wind_speed_format">%1$.1f m/s</string>
-    <string name="wind_direction_format">(%1$3d)</string>
+    <string name="wind_direction_format">(%1$3d deg)</string>
     <string name="lat_long_format">(%f, %f)</string>
     <string name="wind_direction_indicator">WInd direction indicator</string>
     <string name="right_facing_chevron">Right facing chevron</string>
@@ -15,4 +15,6 @@
     <string name="wind_direction">Wind direction</string>
     <string name="wind_speed">Wind speed</string>
     <string name="select">Select</string>
+    <string name="network_error">Network Error</string>
+    <string name="network_error_message">Sorry - we are unable to complete your request at this time</string>
 </resources>
