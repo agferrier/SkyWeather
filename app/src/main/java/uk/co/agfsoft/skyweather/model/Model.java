@@ -60,14 +60,14 @@ public class Model {
 
 
     public void saveCity(WeatherCity weatherCity) {
-        boolean isCitySaved = false;
+        boolean isCityAlreadySaved = false;
         for (WeatherCity city: weatherCities) {
             if (city.getId() == weatherCity.getId()) {
-                isCitySaved = true;
+                isCityAlreadySaved = true;
                 break;
             }
         }
-        if (!isCitySaved) {
+        if (!isCityAlreadySaved) {
             realm.beginTransaction();
             realm.copyToRealm(weatherCity);
             realm.commitTransaction();
