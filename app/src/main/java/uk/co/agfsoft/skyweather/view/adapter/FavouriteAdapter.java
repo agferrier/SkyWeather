@@ -17,7 +17,6 @@ import uk.co.agfsoft.skyweather.model.WeatherCity;
 import uk.co.agfsoft.skyweather.presenter.FavouritesPresenter;
 
 
-
 public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.ViewHolder> {
 
     private List<WeatherCity> favourites;

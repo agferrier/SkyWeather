@@ -1,35 +1,34 @@
 package uk.co.agfsoft.skyweather.view
 
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import butterknife.ButterKnife
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_show_favourite.*
 import kotlinx.android.synthetic.main.content_show_favourite.*
 import uk.co.agfsoft.skyweather.R
-import uk.co.agfsoft.skyweather.dagger.ActivityComponent
-import uk.co.agfsoft.skyweather.dagger.ActivityModule
-import uk.co.agfsoft.skyweather.dagger.InjectableActivity
-import uk.co.agfsoft.skyweather.dagger.InjectableApplication
 import uk.co.agfsoft.skyweather.model.RawWeatherCity
 import uk.co.agfsoft.skyweather.presenter.ShowFavouritePresenter
+import uk.co.agfsoft.skyweather.utils.ContextLogger
 import uk.co.agfsoft.skyweather.utils.showAlert
 import javax.inject.Inject
 
-class ShowFavouriteActivity : AppCompatActivity(), InjectableActivity, ShowFavouriteView {
-    lateinit private var activityComponent: ActivityComponent
+class ShowFavouriteActivity : AppCompatActivity(), ShowFavouriteView {
 
     @Inject
     lateinit internal var showFavouritePresenter: ShowFavouritePresenter
 
+    @Inject
+    lateinit internal var contextLogger: ContextLogger
+
     //<editor-fold desc="Lifecycle methods">
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        contextLogger.logContext()
         super.onCreate(savedInstanceState)
-        getActivityComponent().inject(this)
-
         setContentView(R.layout.activity_show_favourite)
         ButterKnife.bind(this)
         setSupportActionBar(toolbar)
@@ -55,17 +54,6 @@ class ShowFavouriteActivity : AppCompatActivity(), InjectableActivity, ShowFavou
         } else {
             return super.onOptionsItemSelected(item)
         }
-    }
-    //</editor-fold>
-
-
-    //<editor-fold desc="InjectableActivity implementation">
-    override fun getActivityComponent(): ActivityComponent {
-        activityComponent = (application as InjectableApplication)
-                .applicationComponent
-                .plus(ActivityModule(this))
-        return activityComponent
-
     }
     //</editor-fold>
 

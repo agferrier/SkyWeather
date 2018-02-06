@@ -20,7 +20,6 @@ import uk.co.agfsoft.skyweather.model.FindCitiesResponse;
 import uk.co.agfsoft.skyweather.model.Model;
 import uk.co.agfsoft.skyweather.model.WeatherCity;
 import uk.co.agfsoft.skyweather.presenter.AddFavouritePresenter;
-import uk.co.agfsoft.skyweather.presenter.AddFavouritePresenterImpl;
 import uk.co.agfsoft.skyweather.view.AddFavouriteView;
 import uk.co.agfsoft.skyweather.volley.BaseVolleyRequest;
 
@@ -48,7 +47,7 @@ public class AddFavouritePresenterTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        presenter = new AddFavouritePresenterImpl(view, model);
+        presenter = new AddFavouritePresenter(view, model);
     }
 
     @Test

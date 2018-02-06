@@ -2,7 +2,6 @@ package uk.co.agfsoft.skyweather.view
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
@@ -13,36 +12,36 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import butterknife.ButterKnife
 import butterknife.OnEditorAction
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.content_add_favourite.*
 import uk.co.agfsoft.skyweather.R
-import uk.co.agfsoft.skyweather.dagger.ActivityComponent
-import uk.co.agfsoft.skyweather.dagger.ActivityModule
-import uk.co.agfsoft.skyweather.dagger.InjectableActivity
-import uk.co.agfsoft.skyweather.dagger.InjectableApplication
 import uk.co.agfsoft.skyweather.model.WeatherCity
 import uk.co.agfsoft.skyweather.presenter.AddFavouritePresenter
+import uk.co.agfsoft.skyweather.utils.ContextLogger
 import uk.co.agfsoft.skyweather.utils.showAlert
 import uk.co.agfsoft.skyweather.view.adapter.AddFavouriteAdapter
 import javax.inject.Inject
 
-class AddFavouriteActivity : AppCompatActivity(), InjectableActivity, AddFavouriteView {
+class AddFavouriteActivity : AppCompatActivity(), AddFavouriteView {
 
-    lateinit private var activityComponent: ActivityComponent
     lateinit private var addFavouriteAdapter: AddFavouriteAdapter
 
     @Inject
     lateinit internal var addFavouritePresenter: AddFavouritePresenter
+    @Inject
+    lateinit internal var contextLogger: ContextLogger
 
 
     //<editor-fold desc="Lifecycle methods">
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        contextLogger.logContext()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_favourite)
         ButterKnife.bind(this)
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        getActivityComponent().inject(this)
         initialiseViews()
 
     }
@@ -90,16 +89,6 @@ class AddFavouriteActivity : AppCompatActivity(), InjectableActivity, AddFavouri
 
     override fun dismiss() {
         finish()
-    }
-    //</editor-fold>
-
-    //<editor-fold desc="InjectableActivity implementation">
-    override fun getActivityComponent(): ActivityComponent {
-        activityComponent = (application as InjectableApplication)
-                .applicationComponent
-                .plus(ActivityModule(this))
-        return activityComponent
-
     }
     //</editor-fold>
 

@@ -18,7 +18,6 @@ import java.io.InputStreamReader;
 import uk.co.agfsoft.skyweather.model.Model;
 import uk.co.agfsoft.skyweather.model.RawWeatherCity;
 import uk.co.agfsoft.skyweather.presenter.ShowFavouritePresenter;
-import uk.co.agfsoft.skyweather.presenter.ShowFavouritePresenterImpl;
 import uk.co.agfsoft.skyweather.view.ShowFavouriteView;
 import uk.co.agfsoft.skyweather.volley.BaseVolleyRequest;
 
@@ -48,7 +47,7 @@ public class ShowFavouritePresenterTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        presenter = new ShowFavouritePresenterImpl(view, model) {
+        presenter = new ShowFavouritePresenter(view, model) {
         };
     }
 

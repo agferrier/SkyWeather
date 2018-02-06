@@ -14,7 +14,6 @@ import java.util.List;
 import uk.co.agfsoft.skyweather.model.Model;
 import uk.co.agfsoft.skyweather.model.WeatherCity;
 import uk.co.agfsoft.skyweather.presenter.FavouritesPresenter;
-import uk.co.agfsoft.skyweather.presenter.FavouritesPresenterImpl;
 import uk.co.agfsoft.skyweather.view.FavouritesView;
 
 import static org.mockito.Mockito.verify;
@@ -37,7 +36,7 @@ public class FavouritesPresenterTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        presenter = new FavouritesPresenterImpl(view, model);
+        presenter = new FavouritesPresenter(view, model);
     }
 
     @Test
