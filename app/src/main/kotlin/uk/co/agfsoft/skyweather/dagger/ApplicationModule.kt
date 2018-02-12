@@ -1,7 +1,7 @@
 package dagger
 
 import android.content.Context
-import application.SkyWeatherApplication
+import uk.co.agfsoft.skyweather.SkyWeatherApplication
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.facebook.stetho.okhttp3.StethoInterceptor

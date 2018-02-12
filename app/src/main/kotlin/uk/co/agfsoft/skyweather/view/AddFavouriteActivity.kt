@@ -15,11 +15,11 @@ import butterknife.OnEditorAction
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.content_add_favourite.*
 import uk.co.agfsoft.skyweather.R
-import uk.co.agfsoft.skyweather.model.WeatherCity
+import model.WeatherCity
 import uk.co.agfsoft.skyweather.presenter.AddFavouritePresenter
 import uk.co.agfsoft.skyweather.utils.ContextLogger
 import uk.co.agfsoft.skyweather.utils.showAlert
-import uk.co.agfsoft.skyweather.view.adapter.AddFavouriteAdapter
+import uk.co.agfsoft.skyweather.adapter.AddFavouriteAdapter
 import javax.inject.Inject
 
 class AddFavouriteActivity : AppCompatActivity(), AddFavouriteView {

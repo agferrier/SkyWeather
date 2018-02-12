@@ -13,10 +13,9 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_favourites.*
 import kotlinx.android.synthetic.main.content_favourites.*
 import uk.co.agfsoft.skyweather.R
-import uk.co.agfsoft.skyweather.model.WeatherCity
+import model.WeatherCity
 import uk.co.agfsoft.skyweather.presenter.FavouritesPresenter
-import uk.co.agfsoft.skyweather.utils.ContextLogger
-import uk.co.agfsoft.skyweather.view.adapter.FavouriteAdapter
+import uk.co.agfsoft.skyweather.adapter.FavouriteAdapter
 import javax.inject.Inject
 
 class FavouritesActivity : AppCompatActivity(), FavouritesView {

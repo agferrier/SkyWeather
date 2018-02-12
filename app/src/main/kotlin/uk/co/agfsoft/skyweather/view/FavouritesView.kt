@@ -1,6 +1,6 @@
 package uk.co.agfsoft.skyweather.view
 
-import uk.co.agfsoft.skyweather.model.WeatherCity
+import model.WeatherCity
 
 
 interface FavouritesView {

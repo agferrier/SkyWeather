@@ -1,10 +1,9 @@
-package application
+package uk.co.agfsoft.skyweather
 
 import android.app.Activity
 import android.app.Application
 
 import com.facebook.stetho.Stetho
-import dagger.ApplicationComponent
 import dagger.DaggerApplicationComponent
 
 import dagger.android.AndroidInjector

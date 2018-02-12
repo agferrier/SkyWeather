@@ -10,7 +10,7 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_show_favourite.*
 import kotlinx.android.synthetic.main.content_show_favourite.*
 import uk.co.agfsoft.skyweather.R
-import uk.co.agfsoft.skyweather.model.RawWeatherCity
+import model.RawWeatherCity
 import uk.co.agfsoft.skyweather.presenter.ShowFavouritePresenter
 import uk.co.agfsoft.skyweather.utils.ContextLogger
 import uk.co.agfsoft.skyweather.utils.showAlert

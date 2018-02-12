@@ -1,6 +1,6 @@
 package dagger
 
-import application.SkyWeatherApplication
+import uk.co.agfsoft.skyweather.SkyWeatherApplication
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
